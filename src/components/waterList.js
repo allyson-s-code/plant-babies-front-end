@@ -61,7 +61,7 @@ export default function WaterList() {
       feedDate: plant.feedDate,
     };
     // This will send a post request to update the data in the database.
-    await fetch(`http://localhost:4000/update/${id}`, {
+    await fetch(`https://plant-babies-server.cyclic.app/update/${id}`, {
       method: "POST",
       body: JSON.stringify(editedDate),
       headers: {

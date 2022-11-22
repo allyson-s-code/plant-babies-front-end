@@ -28,7 +28,7 @@ function PlantList() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`http://localhost:4000/${id}`, {
+    await fetch(`https://plant-babies-server.cyclic.app/${id}`, {
       method: "DELETE",
     });
 
