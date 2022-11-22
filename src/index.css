@@ -1,0 +1,814 @@
+@import-normalize; /* bring in normalize.css styles */
+
+@import url("https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css");
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --main-heading-color2: #046a38;
+  --main-bg-color: #f2f7f3;
+  --main-text-color2: #134d38;
+  --section-bg-color: #fafbf9;
+  --header-font: Spicy Rice;
+  --spacing: 0.18rem;
+}
+
+/*
+=============== 
+Global Styles
+===============
+*/
+
+form,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--main-text-color2);
+  background-color: var(--main-bg-color);
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* These styles are required to make icons render reliably */
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-family: serif;
+  font-family: var(--header-font);
+  color: var(--main-heading-color2);
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: var(--header-font);
+  color: var(--main-heading-color2);
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-main,
+.content {
+  width: 100%;
+  max-width: 675px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* animated page transitions for soft fade in and out */
+.fadeIn {
+  animation: 0.5s fadeIn forwards;
+}
+
+.fadeOut {
+  animation: 0.5s fadeOut forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* button styles */
+
+button {
+  color: var(--main-heading-color2);
+  border-radius: 25px;
+  transition: 0.2s ease-in-out;
+  border: 2px solid var(--main-heading-color2);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  transform: scale(1.03);
+  background: linear-gradient(45deg, #0ba360, #3cba92, #2bcc7e, #2bb673);
+  background-size: 200%;
+  animation: animated_btn 5s ease-in-out infinite;
+  -moz-animation: animated_btn 5s ease-in-out infinite;
+  -webkit-animation: animated_btn 5s ease-in-out infinite;
+  border: none;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+@keyframes animated_btn {
+  0% {
+    background-position: 0px 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0px 50%;
+  }
+}
+
+button.primary {
+  width: 175px;
+  height: 50px;
+  letter-spacing: 0.03rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+button.secondary {
+  width: 150px;
+  height: 45px;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+button.mini {
+  width: 70px;
+  height: 30px;
+  font-size: 0.875rem;
+  line-height: 28px;
+  letter-spacing: 0.03rem;
+  font-weight: 700;
+}
+
+/*
+=============== 
+Header Styles
+===============
+*/
+
+.app-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-bg-color);
+  padding-top: 2em;
+}
+
+.app-header__title {
+  letter-spacing: var(--spacing);
+  transition: 0.2s ease-in-out;
+}
+
+.app-header__title:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.app-header__title:active {
+  transform: scale(0.98);
+}
+
+/*
+=============== 
+Home Section Styles
+===============
+*/
+
+.home-section {
+  width: 100%;
+  height: 100%;
+  margin: 1.5rem 0 3rem 0;
+  background-color: var(--section-bg-color);
+  border-radius: 1rem;
+  box-shadow: 0px 20px 37px 2px #4d8c7516;
+  padding: 4.5rem 0;
+}
+
+.home__img-wrapper {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.home__img {
+  width: 100%;
+  height: auto;
+}
+
+.home__heading {
+  width: 65%;
+  color: var(--main-heading-color2);
+  margin: 1.25em 0 1rem 0;
+  line-height: 1.4;
+}
+
+.home__heading span {
+  font-family: var(--header-font);
+}
+
+.home__btn {
+  margin: 0.75rem 0;
+}
+
+/*
+=============== 
+Care Section Styles
+===============
+*/
+.care-section {
+  margin: 1.5rem 0;
+}
+
+.water-list,
+.feed-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--section-bg-color);
+  border-radius: 1rem;
+  padding: 3rem 0 2rem 0;
+  margin: 0.75rem 0;
+  box-shadow: 0px 20px 37px 2px #4d8c7516;
+}
+
+.water-list__plants,
+.feed-list__plants {
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.water-list p,
+.feed-list p {
+  width: 75%;
+  margin: 0.5rem 0;
+}
+
+.feed-list__completed-msg,
+.water-list__completed-msg {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.feed-list__completed-msg p,
+.water-list__completed-msg p {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.water-list__completed-img,
+.feed-list__completed-img {
+  width: 50%;
+  height: auto;
+  margin: 1rem 0 2rem 0;
+}
+
+.care__btn {
+  margin-bottom: 1.25rem;
+}
+
+.plant {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.25rem 0;
+  position: relative;
+  text-align: left;
+  transition: 0.2s ease-in-out;
+}
+
+.plant:hover {
+  transform: scale(1.025);
+}
+
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 700ms ease-out;
+}
+
+.item-enter {
+  opacity: 0;
+  transition: opacity 700ms ease-in;
+}
+
+.plant__img-text-wrapper {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plant__img-wrapper {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #88b086;
+}
+
+.plant__img {
+  width: 100%;
+  height: auto;
+}
+
+.plant__text-wrapper {
+  width: 65%;
+  padding-left: 15px;
+}
+
+.plant__text-wrapper p {
+  font-size: 0.8rem;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.plant__check {
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.75rem;
+  color: var(--main-heading-color2);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.plant__check:hover {
+  transform: scale(1.1);
+}
+
+.plant__check:active {
+  transform: scale(0.98);
+}
+
+/*
+=============== 
+Plant List Section
+===============
+*/
+
+.plant-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5em 0;
+}
+
+.create__btn {
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  line-height: 28px;
+  margin-top: 1rem;
+}
+
+.plant-list {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--section-bg-color);
+  border-radius: 1rem;
+  padding: 3rem 0 2rem 0;
+  margin: 0.75rem 0;
+  box-shadow: 0px 20px 37px 2px #4d8c7516;
+}
+
+.plant a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plant__details-link {
+  width: 2rem;
+  display: inline-block;
+  align-self: flex-start;
+  padding-top: 0.8rem;
+}
+
+.plant__details-link:hover {
+  transform: scale(1.1);
+}
+
+.plant:active,
+.plant__details-link:active {
+  transform: scale(0.98);
+}
+
+/*
+=====================
+Plant Details Section
+=====================
+*/
+.details-section {
+  height: 100%;
+  margin: 1.5rem 0 3rem 0;
+  background-color: var(--section-bg-color);
+  border-radius: 1rem;
+  box-shadow: 0px 20px 37px 2px #4d8c7516;
+  padding: 3.5rem 0 4rem 0;
+}
+
+.plant-details {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.plant-details__img-wrapper {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-self: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #88b086;
+}
+
+.plant-details__img {
+  width: 100%;
+}
+
+.plant-details__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  margin: 2rem 0 1rem 0;
+}
+
+.plant-details__text-wrapper p,
+.plant-details__text-wrapper h4 {
+  margin: 0.5rem 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 30px;
+}
+
+.edit__btn,
+.back__btn,
+.delete__btn {
+  width: 70px;
+  height: 30px;
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 0.875rem;
+  line-height: 28px;
+  letter-spacing: 0.03rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+/*
+===============
+Form Styles
+===============
+*/
+form {
+  width: 85%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 2rem 0;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.label-span {
+  font-weight: 200;
+  font-size: 0.875rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  height: 2.25rem;
+  border: 2px solid #dbebe2;
+  border-radius: 8px;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color2);
+  font: inherit;
+  padding: 5px;
+}
+
+textarea {
+  height: 14rem;
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+input:focus,
+textarea:focus {
+  border-color: lawngreen;
+}
+
+.error-msg {
+  font-size: 0.875rem;
+  color: #f83131;
+  font-weight: 700;
+  padding-top: 3px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/*
+========================
+Create New/ Edit Plant Sections 
+========================
+*/
+
+.create-section {
+  height: auto;
+  margin: 1.5rem 0 3rem 0;
+  background-color: var(--section-bg-color);
+  border-radius: 1rem;
+  box-shadow: 0px 20px 37px 2px #4d8c7516;
+  padding: 3.5rem 0;
+}
+
+.submit-new__btn,
+.cancel__btn {
+  margin-top: 2rem;
+}
+
+.success-msg {
+  margin-top: 2rem;
+}
+
+/*
+========================
+404 PAGE NOT FOUND
+========================
+*/
+.not-found {
+  margin: 1.5rem 0 3rem 0;
+  background-color: var(--section-bg-color);
+  border-radius: 1rem;
+  box-shadow: 0px 20px 37px 2px #4d8c7516;
+  padding: 4.5rem 0;
+}
+
+.not-found__wrapper {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.not-found h2 {
+  margin: 1rem;
+}
+
+.not-found__img-wrapper {
+  width: 80%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.not-found__img {
+  width: 100%;
+  border-radius: 25rem;
+}
+
+/*
+==============================
+Media Query for larger screens
+==============================
+*/
+@media screen and (min-width: 481px) {
+  /*
+=============== 
+Global Styles
+===============
+*/
+
+  h1 {
+    font-size: 3.5rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  section {
+    width: 90%;
+  }
+  /*
+=============== 
+Header Styles
+===============
+*/
+
+  .app-header {
+    padding-top: 6rem;
+  }
+
+  /*
+=============== 
+Home Section
+===============
+*/
+  .home-section {
+    margin: 3rem 0 4rem 0;
+    padding: 5rem 0 6rem 0;
+  }
+
+  .home__img-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+
+  /*
+=============== 
+Care Section
+===============
+*/
+
+  .care-section {
+    margin: 3rem 0 4rem 0;
+  }
+
+  .water-list,
+  .feed-list {
+    width: 90%;
+    padding: 3.5rem 0 2rem 0;
+  }
+
+  .plant {
+    margin: 3rem 0;
+  }
+
+  .plant__img-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+
+  .plant__text-wrapper {
+    width: 65%;
+  }
+
+  .plant__text-wrapper p {
+    font-size: 0.95rem;
+  }
+
+  .plant__check {
+    font-size: 1.75rem;
+  }
+
+  .feed-list__completed-msg,
+  .water-list__completed-msg {
+    width: 85%;
+  }
+
+  .feed-list__completed-img,
+  .water-list__completed-img {
+    margin: 1.5rem 0 2.5rem 0;
+  }
+
+  /*
+  =================== 
+  Plant List Section
+  ===================
+  */
+  .plant__details-link {
+    padding-top: 1.1rem;
+  }
+
+  /*
+  ===================== 
+  Plant Details Section
+  =====================
+  */
+
+  .details-section {
+    width: 90%;
+  }
+
+  .plant-details__img-wrapper {
+    width: 225px;
+    height: 225px;
+  }
+}
