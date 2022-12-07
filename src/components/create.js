@@ -99,7 +99,7 @@ export default function NewPlant() {
                 id="img"
                 name="img"
                 type="url"
-                placeholder="https://images.unsplash.com/photo-1581573025746-0ee51aef032a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80"
+                placeholder="https://i.postimg.cc/63fzjKf6/placeholder-plant-225w.jpg"
               />
               <ErrorMessage name="img" component={TextError} />
 
