@@ -51,11 +51,11 @@ export default function NewPlant() {
     botanicalName: Yup.string().required("Required"),
     img: Yup.string().url().nullable(),
     waterFrequency: Yup.number().positive().integer().required("Required"),
-    feedFrequency: Yup.number().positive().nullable(),
+    feedFrequency: Yup.number().positive().interger().required("Required"),
     light: Yup.string().required("Required"),
     care: Yup.string().required("Required"),
     waterDate: Yup.string().required("Required"),
-    feedDate: Yup.string().nullable(),
+    feedDate: Yup.string().required("Required"),
   });
 
   return (
