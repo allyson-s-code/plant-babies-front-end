@@ -13,7 +13,7 @@ export default function WaterList() {
   useEffect(() => {
     async function getPlants() {
       const response = await fetch(
-        "https://plant-babies-server.cyclic.app/plants/"
+        "https://rich-gray-piglet-suit.cyclic.app/plants/"
       );
 
       if (!response.ok) {
@@ -65,7 +65,7 @@ export default function WaterList() {
       feedDate: plant.feedDate,
     };
     // This will send a post request to update the data in the database.
-    await fetch(`https://plant-babies-server.cyclic.app/update/${id}`, {
+    await fetch(`https://rich-gray-piglet-suit.cyclic.app/update/${id}`, {
       method: "POST",
       body: JSON.stringify(editedDate),
       headers: {
