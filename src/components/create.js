@@ -12,7 +12,7 @@ export default function NewPlant() {
     const newPlant = { ...values };
 
     const response = fetch(
-      "https://plant-babies-server.cyclic.app/plants/create",
+      "https://plant-babies-backend.onrender.com/plants/create",
       {
         method: "POST",
         headers: {
