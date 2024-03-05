@@ -25,7 +25,7 @@ export default function UpdatePlantForm() {
     async function getFormValues() {
       const id = params.id;
       const response = await fetch(
-        `https://plant-babies-backend.onrender.com/plants/${id}`
+        `https://plant-babies-server.cyclic.app/plants/${id}`
       );
 
       if (!response.ok) {
@@ -65,7 +65,7 @@ export default function UpdatePlantForm() {
 
     // When a post request is sent to the edit url, we'll update a record from the database.
     const response = await fetch(
-      `https://plant-babies-backend.onrender.com/${id}/edit`,
+      `https://plant-babies-server.cyclic.app/${id}/edit`,
       {
         method: "POST",
         headers: {
@@ -89,11 +89,11 @@ export default function UpdatePlantForm() {
     botanicalName: Yup.string().required("Required"),
     img: Yup.string().url().nullable(),
     waterFrequency: Yup.number().positive().integer().required("Required"),
-    feedFrequency: Yup.number().positive().integer().required("Required"),
+    feedFrequency: Yup.number().positive().nullable(),
     light: Yup.string().required("Required"),
     care: Yup.string().required("Required"),
     waterDate: Yup.string().required("Required"),
-    feedDate: Yup.string().required("Required"),
+    feedDate: Yup.string().nullable(),
   });
 
   return (

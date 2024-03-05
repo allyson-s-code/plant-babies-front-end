@@ -12,7 +12,7 @@ export default function NewPlant() {
     const newPlant = { ...values };
 
     const response = fetch(
-      "https://plant-babies-backend.onrender.com/plants/create",
+      "https://plant-babies-server.cyclic.app/plants/create",
       {
         method: "POST",
         headers: {
@@ -51,11 +51,11 @@ export default function NewPlant() {
     botanicalName: Yup.string().required("Required"),
     img: Yup.string().url().nullable(),
     waterFrequency: Yup.number().positive().integer().required("Required"),
-    feedFrequency: Yup.number().positive().integer().required("Required"),
+    feedFrequency: Yup.number().positive().nullable(),
     light: Yup.string().required("Required"),
     care: Yup.string().required("Required"),
     waterDate: Yup.string().required("Required"),
-    feedDate: Yup.string().required("Required"),
+    feedDate: Yup.string().nullable(),
   });
 
   return (
@@ -99,7 +99,7 @@ export default function NewPlant() {
                 id="img"
                 name="img"
                 type="url"
-                placeholder="https://i.postimg.cc/63fzjKf6/placeholder-plant-225w.jpg"
+                placeholder="https://images.unsplash.com/photo-1581573025746-0ee51aef032a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80"
               />
               <ErrorMessage name="img" component={TextError} />
 

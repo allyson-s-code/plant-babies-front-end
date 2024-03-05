@@ -13,7 +13,7 @@ export default function FeedList() {
   useEffect(() => {
     async function getPlants() {
       const response = await fetch(
-        "https://plant-babies-backend.onrender.com/plants/"
+        "https://plant-babies-server.cyclic.app/plants/"
       );
 
       if (!response.ok) {
@@ -52,12 +52,11 @@ export default function FeedList() {
 
     if (
       thisMonth !== "December" &&
-      thisMonth !== "January" &&
-      thisMonth !== "February"
+      month !== "January" &&
+      month !== "February"
     ) {
       plants = plants.filter((plant) => {
         let feedDate = new Date(plant.feedDate);
-
         return plant.feedDate !== null && feedDate <= today;
       });
       return plants;
@@ -66,7 +65,7 @@ export default function FeedList() {
     }
   }
 
-  // This will update the feedDate based on onClick event on plant item
+  // This will update the waterDate based on onClick event on plant item
   function handleUpdate(id) {
     //call update database function
     submitData(id);
@@ -74,7 +73,7 @@ export default function FeedList() {
     removePlant(id);
   }
 
-  // update database with new feedDate
+  // update database with new waterDate
   async function submitData(id) {
     const plant = plants.find((plant) => plant._id === id);
     let date = new Date();
@@ -88,7 +87,7 @@ export default function FeedList() {
       waterDate: plant.waterDate,
     };
     // This will send a post request to update the data in the database.
-    await fetch(`https://plant-babies-backend.onrender.com/update/${id}`, {
+    await fetch(`https://plant-babies-server.cyclic.app/update/${id}`, {
       method: "POST",
       body: JSON.stringify(editedDate),
       headers: {
@@ -113,7 +112,7 @@ export default function FeedList() {
         <div className="feed-list__completed-msg">
           <p>Your babies are fed and happy!</p>
           <img
-            srcSet={`${happyPlant1sm} 200w, ${happyPlant1Lg} 325w, ${happyPlant1XL} 650w`}
+            srcset={`${happyPlant1sm} 200w, ${happyPlant1Lg} 325w, ${happyPlant1XL} 650w`}
             src={happyPlant1Lg}
             alt="houseplant illustration"
             className="feed-list__completed-img"
