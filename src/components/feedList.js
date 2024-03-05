@@ -112,7 +112,7 @@ export default function FeedList() {
         <div className="feed-list__completed-msg">
           <p>Your babies are fed and happy!</p>
           <img
-            srcset={`${happyPlant1sm} 200w, ${happyPlant1Lg} 325w, ${happyPlant1XL} 650w`}
+            srcSet={`${happyPlant1sm} 200w, ${happyPlant1Lg} 325w, ${happyPlant1XL} 650w`}
             src={happyPlant1Lg}
             alt="houseplant illustration"
             className="feed-list__completed-img"
